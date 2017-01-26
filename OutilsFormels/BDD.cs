@@ -40,7 +40,11 @@ namespace OutilsFormels
                 cmd.CommandText = "INSERT INTO user (userID, fisrtName, lastName, email, password) VALUES (@id, @fisrtName, @lastName, @email, @password)";
 
                 // utilisation de l'objet contact passé en paramètre
-
+                cmd.Parameters.AddWithValue("@userID", user.userID);
+                cmd.Parameters.AddWithValue("@firstName", user.firstName);
+                cmd.Parameters.AddWithValue("@lastName", user.lastName);
+                cmd.Parameters.AddWithValue("@email", user.email);
+                cmd.Parameters.AddWithValue("@password", user.password);
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
@@ -55,4 +59,6 @@ namespace OutilsFormels
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
+
+    }
 }

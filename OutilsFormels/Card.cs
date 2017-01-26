@@ -8,12 +8,12 @@ namespace OutilsFormels
 {
     public class Card
     {
-        private int cardID { get; set; }
-        private string number { get; set; }
-        private DateTime expiration { get; set; }
-        private int cvv { get; set; }
-        private int type { get; set; }
-        private int fk_userID { get; set; }
+        public int cardID { get; set; }
+        public string number { get; set; }
+        public DateTime expiration { get; set; }
+        public int cvv { get; set; }
+        public int type { get; set; }
+        public int fk_userID { get; set; }
 
         Card()
         {

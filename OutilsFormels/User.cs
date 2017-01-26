@@ -14,7 +14,7 @@ namespace OutilsFormels
         public string email { get; set; }
         public string password { get; set; }
 
-        User(int userID,string firstName,string lastName,string email,string password)
+        public User(int userID,string firstName,string lastName,string email,string password)
         {
             this.userID = userID;
             this.firstName = firstName;

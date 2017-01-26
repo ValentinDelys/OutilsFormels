@@ -24,5 +24,11 @@ namespace OutilsFormels
         {
             InitializeComponent();
         }
+
+        private void test(object sender, RoutedEventArgs e)
+        {
+            BDD mybdd = new BDD();
+            mybdd.AddUser(new User(0,"john","rambo","john.rambo@CpasmasGuerre.com","pioupiou"));
+         }
     }
 }

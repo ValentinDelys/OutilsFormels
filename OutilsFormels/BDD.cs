@@ -14,7 +14,7 @@ namespace OutilsFormels
         private string connectionString = "SERVER=localhost; DATABASE=outils_formels; UID=root; PASSWORD=";
         private MySqlConnection connection;
 
-        BDD()
+        public BDD()
         {
             InitConnection();
         }
@@ -37,10 +37,9 @@ namespace OutilsFormels
                 MySqlCommand cmd = this.connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO user (userID, fisrtName, lastName, email, password) VALUES (@id, @fisrtName, @lastName, @email, @password)";
+                cmd.CommandText = "INSERT INTO user ( fisrtName, lastName, email, password) VALUES ( @fisrtName, @lastName, @email, @password)";
 
                 // utilisation de l'objet contact passé en paramètre
-                cmd.Parameters.AddWithValue("@userID", user.userID);
                 cmd.Parameters.AddWithValue("@firstName", user.firstName);
                 cmd.Parameters.AddWithValue("@lastName", user.lastName);
                 cmd.Parameters.AddWithValue("@email", user.email);
@@ -52,8 +51,9 @@ namespace OutilsFormels
                 // Fermeture de la connexion
                 this.connection.Close();
             }
-            catch
+            catch (Exception e)
             {
+                string msg = e.Message;
                 // Gestion des erreurs :
                 // Possibilité de créer un Logger pour les exceptions SQL reçus
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.

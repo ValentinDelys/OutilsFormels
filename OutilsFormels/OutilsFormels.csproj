@@ -40,10 +40,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\mysql-connector-dotnet\mysql-connector.net\MySql.Data.dll</HintPath>
+      <HintPath>..\mysql-connector.net\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Web">
-      <HintPath>..\..\..\mysql-connector-dotnet\mysql-connector.net\MySql.Web.dll</HintPath>
+      <HintPath>..\mysql-connector.net\MySql.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

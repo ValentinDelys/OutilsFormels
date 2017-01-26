@@ -60,5 +60,40 @@ namespace OutilsFormels
             }
         }
 
+        // Add a card
+        public void AddCard(Card card)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                this.connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = this.connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "INSERT INTO card (cardID, number, expiration, cvv, type, fk_userID) VALUES (@cardID, @number, @expiration, @cvv, @type, @fk_userID)";
+
+                // utilisation de l'objet contact passé en paramètre
+                cmd.Parameters.AddWithValue("@cardID", card.cardID);
+                cmd.Parameters.AddWithValue("@number", card.number);
+                cmd.Parameters.AddWithValue("@expiration", card.expiration);
+                cmd.Parameters.AddWithValue("@cvv", card.cvv);
+                cmd.Parameters.AddWithValue("@type", card.type);
+                cmd.Parameters.AddWithValue("@fk_userID", card.fk_userID);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                this.connection.Close();
+            }
+            catch
+            {
+                // Gestion des erreurs :
+                // Possibilité de créer un Logger pour les exceptions SQL reçus
+                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+            }
+        }
     }
 }

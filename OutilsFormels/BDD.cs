@@ -19,13 +19,13 @@ namespace OutilsFormels
         /// </summary>
         public BDD()
         {
-            InitConnection();
+            initConnection();
         }
 
         /// <summary>
         /// init the connection
         /// </summary>
-        private void InitConnection()
+        private void initConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
@@ -35,7 +35,7 @@ namespace OutilsFormels
         /// Add a User
         /// </summary>
         /// <param name="user"></param>
-        public int AddUser(User user)
+        public int addUser(User user)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace OutilsFormels
         }
 
 
-        public int GetUser(string loginUser, ref User user)
+        public int getUser(string loginUser, ref User user)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace OutilsFormels
         /// </summary>
         /// <param name="loginUser">User delete</param>
         /// <returns></returns>
-        public int DeleteUser(string loginUser)
+        public int deleteUser(string loginUser)
         {
             try
             {
@@ -146,7 +146,7 @@ namespace OutilsFormels
         /// Add a card
         /// </summary>
         /// <param name="card"> card class </param>
-        public int AddCard(Card card)
+        public int addCard(Card card)
         {
             try
             {
@@ -185,7 +185,7 @@ namespace OutilsFormels
         /// </summary>
         /// <param name="cardID"> ID of the card which have to be delete</param>
         /// <returns></returns>
-        public int DeleteCard(int cardID)
+        public int deleteCard(int cardID)
         {
             try
             {

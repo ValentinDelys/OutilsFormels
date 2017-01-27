@@ -69,6 +69,44 @@ namespace OutilsFormels
                 return -1;
             }
         }
+
+
+        public int GetUser(string loginUser, ref User user)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                this.connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = this.connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "SELECT * FROM user WHERE login = " + (char)34 + loginUser + (char)34;
+                // Exécution de la commande SQL
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    }
+
+                }
+
+                // Fermeture de la connexion
+                this.connection.Close();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                string msg = e.Message;
+
+                return -1;
+            }
+        }
+
         /// <summary>
         /// Delete a user in the database
         /// </summary>

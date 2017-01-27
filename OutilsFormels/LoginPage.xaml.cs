@@ -29,7 +29,7 @@ namespace OutilsFormels
             {
                 BDD mybdd = new BDD();
                 User user = new User();
-                if (mybdd.getUser(txtLogin.Text) != 1)
+                if (mybdd.GetUser(txtLogin.Text,ref user) != 1)
                 {
                     throw new Exception("Login doesn't exist in the database");
                 }

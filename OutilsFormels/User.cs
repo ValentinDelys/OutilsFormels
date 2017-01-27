@@ -15,6 +15,7 @@ namespace OutilsFormels
         public string password { get; set; }
         public string login { get; set; }
 
+        public User() { }
         public User(int userID,string firstName,string lastName,string email,string password, string login)
         {
             this.userID = userID;

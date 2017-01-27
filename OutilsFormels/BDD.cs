@@ -56,15 +56,14 @@ namespace OutilsFormels
 
                 // Fermeture de la connexion
                 this.connection.Close();
+                return 1;
             }
             catch (Exception e)
             {
                 string msg = e.Message;
-                // Gestion des erreurs :
-                // Possibilité de créer un Logger pour les exceptions SQL reçus
-                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+                
+                return -1;
             }
-
         }
 
 

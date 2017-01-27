@@ -43,13 +43,14 @@ namespace OutilsFormels
                 MySqlCommand cmd = this.connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO user ( firstName, lastName, email, password) VALUES ( @firstName, @lastName, @email, @password)";
+                cmd.CommandText = "INSERT INTO user ( firstName, lastName, email, password, login) VALUES ( @firstName, @lastName, @email, @password, @login)";
 
                 // utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@firstName", user.firstName);
                 cmd.Parameters.AddWithValue("@lastName", user.lastName);
                 cmd.Parameters.AddWithValue("@email", user.email);
                 cmd.Parameters.AddWithValue("@password", user.password);
+                cmd.Parameters.AddWithValue("@login", user.login);
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
@@ -84,10 +85,9 @@ namespace OutilsFormels
                 MySqlCommand cmd = this.connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO card (cardID, number, expiration, cvv, type, fk_userID) VALUES (@cardID, @number, @expiration, @cvv, @type, @fk_userID)";
+                cmd.CommandText = "INSERT INTO card ( number, expiration, cvv, type, fk_userID) VALUES ( @number, @expiration, @cvv, @type, @fk_userID)";
 
                 // utilisation de l'objet contact passé en paramètre
-                cmd.Parameters.AddWithValue("@cardID", card.cardID);
                 cmd.Parameters.AddWithValue("@number", card.number);
                 cmd.Parameters.AddWithValue("@expiration", card.expiration);
                 cmd.Parameters.AddWithValue("@cvv", card.cvv);

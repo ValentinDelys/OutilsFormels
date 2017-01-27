@@ -13,14 +13,16 @@ namespace OutilsFormels
         public string lastName { get; set; }
         public string email { get; set; }
         public string password { get; set; }
+        public string login { get; set; }
 
-        public User(int userID,string firstName,string lastName,string email,string password)
+        public User(int userID,string firstName,string lastName,string email,string password, string login)
         {
             this.userID = userID;
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
             this.password = password;
+            this.login = login;
         }
     }
 }

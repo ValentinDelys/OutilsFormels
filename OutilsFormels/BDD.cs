@@ -23,7 +23,7 @@ namespace OutilsFormels
         }
 
         /// <summary>
-        /// init the connection
+        /// init the connection with the database
         /// </summary>
         private void initConnection()
         {
@@ -65,7 +65,7 @@ namespace OutilsFormels
             catch (Exception e)
             {
                 string msg = e.Message;
-                
+
                 return -1;
             }
         }
@@ -108,7 +108,7 @@ namespace OutilsFormels
         }
 
         /// <summary>
-        /// Delete a user uin the database
+        /// Delete a user in the database
         /// </summary>
         /// <param name="loginUser">User delete</param>
         /// <returns></returns>
@@ -123,7 +123,7 @@ namespace OutilsFormels
                 MySqlCommand cmd = this.connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "DELETE FROM user WHERE login = " + loginUser;
+                cmd.CommandText = "DELETE FROM user WHERE login = " + (char)34 + loginUser + (char)34;
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
 
@@ -138,12 +138,11 @@ namespace OutilsFormels
                 return -1;
             }
         }
-
         #endregion
 
         #region Card Function
         /// <summary>
-        /// Add a card
+        /// Add a card on the database
         /// </summary>
         /// <param name="card"> card class </param>
         public int addCard(Card card)
@@ -173,7 +172,7 @@ namespace OutilsFormels
                 this.connection.Close();
                 return 1;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 string msg = e.Message;
                 return -1;

@@ -23,5 +23,28 @@ namespace OutilsFormels
         {
             InitializeComponent();
         }
+        private void ValiderFunction(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BDD mybdd = new BDD();
+                User user = new User();
+                if (mybdd.getUser(txtLogin.Text,ref user) != 1)
+                {
+                    throw new Exception("Login doesn't exist in the database");
+                }
+                string hashedPassword = user.password;
+                bool validPassword = BCrypt.Net.BCrypt.Verify(passwordBox.Password, hashedPassword);
+                if (validPassword)
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                lblErrorMsg.Content = ex.Message;
+            }
+           
+        }
     }
 }

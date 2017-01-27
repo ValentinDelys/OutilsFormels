@@ -211,6 +211,45 @@ namespace OutilsFormels
             }
         }
 
+        public int getAllCards(ref User user, ref List<Card> list)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                this.connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = this.connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "SELECT * FROM card WHERE fk_userID = " + user.userID;
+                // Exécution de la commande SQL
+
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            Card card = new Card(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5));
+                            list.Add(card);
+                        }
+                    }
+
+                }
+
+                // Fermeture de la connexion
+                this.connection.Close();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                string msg = e.Message;
+
+                return -1;
+            }
+        }
+
         #endregion
     }
 }

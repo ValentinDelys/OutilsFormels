@@ -15,7 +15,7 @@ namespace OutilsFormels
         public int type { get; set; }
         public int fk_userID { get; set; }
 
-        Card(int cartID, string number, DateTime expiration, int cvv, int type, int fk_userID)
+        public Card(int cardID, string number, DateTime expiration, int cvv, int type, int fk_userID)
         {
             this.cardID = cardID;
             this.number = number;

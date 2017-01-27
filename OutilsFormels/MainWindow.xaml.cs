@@ -40,6 +40,15 @@ namespace OutilsFormels
 
             Console.WriteLine("{0}\t{1}\t{2}", user.userID, user.firstName, user.lastName);
 
+            List<Card> listCards = new List<Card>();
+            mybdd.getAllCards(ref user, ref listCards);
+
+            foreach(Card card in listCards)
+            {
+                Console.WriteLine("{0}\t{1}\t{2}\t{3}", card.cardID, card.number, card.expiration.Month, card.expiration.Year);
+            }
+
+
         }
     }
 }

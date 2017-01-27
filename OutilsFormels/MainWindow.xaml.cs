@@ -28,7 +28,8 @@ namespace OutilsFormels
         private void test(object sender, RoutedEventArgs e)
         {
             BDD mybdd = new BDD();
-            mybdd.AddUser(new User(0,"john","rambo","john.rambo@CpasmasGuerre.com", "$2a$10$N2ySck5.5ud.ys/BLGOWqeZioOamIpIfVinyd6FLpuOaSBASBlzrq", "jrambo"));
+            mybdd.DeleteUser("john");
+            //mybdd.AddUser(new User(0,"john","rambo","john.rambo@CpasmasGuerre.com", "$2a$10$N2ySck5.5ud.ys/BLGOWqeZioOamIpIfVinyd6FLpuOaSBASBlzrq", "jrambo"));
          }
     }
 }

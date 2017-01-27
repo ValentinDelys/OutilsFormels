@@ -36,7 +36,7 @@ namespace OutilsFormels
         {
             BDD mybdd = new BDD();
             User user = new User();
-            mybdd.GetUser("jrambo", ref user);
+            mybdd.getUser("jrambo", ref user);
 
             Console.WriteLine("{0}\t{1}\t{2}", user.userID, user.firstName, user.lastName);
 

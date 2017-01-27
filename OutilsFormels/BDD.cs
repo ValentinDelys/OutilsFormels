@@ -14,6 +14,9 @@ namespace OutilsFormels
         private string connectionString = "SERVER=localhost; DATABASE=outils_formels; UID=root; PASSWORD=";
         private MySqlConnection connection;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public BDD()
         {
             InitConnection();
@@ -66,15 +69,46 @@ namespace OutilsFormels
                 return -1;
             }
         }
+        /// <summary>
+        /// Delete a user uin the database
+        /// </summary>
+        /// <param name="loginUser">User delete</param>
+        /// <returns></returns>
+        public int DeleteUser(string loginUser)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                this.connection.Open();
 
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = this.connection.CreateCommand();
 
+                // Requête SQL
+                cmd.CommandText = "DELETE FROM user WHERE user.login = "+user.login;
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                this.connection.Close();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                string msg = e.Message;
+
+                return -1;
+            }
+        }
 
         #endregion
+
+        #region Card Function
         /// <summary>
         /// Add a card
         /// </summary>
         /// <param name="card"> card class </param>
-        public void AddCard(Card card)
+        public int AddCard(Card card)
         {
             try
             {
@@ -99,13 +133,46 @@ namespace OutilsFormels
 
                 // Fermeture de la connexion
                 this.connection.Close();
+                return 1;
             }
-            catch
+            catch(Exception e)
             {
-                // Gestion des erreurs :
-                // Possibilité de créer un Logger pour les exceptions SQL reçus
-                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+                string msg = e.Message;
+                return -1;
             }
         }
+
+        /// <summary>
+        /// Delete a card from the database
+        /// </summary>
+        /// <param name="cardID"> ID of the card which have to be delete</param>
+        /// <returns></returns>
+        public int DeleteCard(int cardID)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                this.connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = this.connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "DELETE FROM card WHERE card.cardID = " + cardID;
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                this.connection.Close();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                string msg = e.Message;
+                return -1;
+            }
+        }
+
+        #endregion
     }
 }

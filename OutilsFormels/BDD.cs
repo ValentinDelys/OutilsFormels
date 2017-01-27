@@ -19,14 +19,20 @@ namespace OutilsFormels
             InitConnection();
         }
 
-        // Init the connection
+        /// <summary>
+        /// init the connection
+        /// </summary>
         private void InitConnection()
         {
             connection = new MySqlConnection(connectionString);
         }
 
-        // Add a user
-        public void AddUser(User user)
+        #region User function
+        /// <summary>
+        /// Add a User
+        /// </summary>
+        /// <param name="user"></param>
+        public int AddUser(User user)
         {
             try
             {
@@ -37,7 +43,7 @@ namespace OutilsFormels
                 MySqlCommand cmd = this.connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO user ( fisrtName, lastName, email, password) VALUES ( @fisrtName, @lastName, @email, @password)";
+                cmd.CommandText = "INSERT INTO user ( firstName, lastName, email, password) VALUES ( @firstName, @lastName, @email, @password)";
 
                 // utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@firstName", user.firstName);
@@ -58,9 +64,16 @@ namespace OutilsFormels
                 // Possibilité de créer un Logger pour les exceptions SQL reçus
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
+
         }
 
-        // Add a card
+
+
+        #endregion
+        /// <summary>
+        /// Add a card
+        /// </summary>
+        /// <param name="card"> card class </param>
         public void AddCard(Card card)
         {
             try

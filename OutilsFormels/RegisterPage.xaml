@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilsFormels"
         mc:Ignorable="d" 
-        Title="Register" Height="300" Width="300" 
+        Title="Register" Height="400" Width="300" 
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label x:Name="label1" Content="Login" HorizontalAlignment="Left" Height="30" Margin="41,45,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="label2" Content="Password" HorizontalAlignment="Left" Height="30" Margin="41,85,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="label3" Content="Password" HorizontalAlignment="Left" Height="30" Margin="41,85,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="label4" Content="First Name" HorizontalAlignment="Left" Height="30" Margin="41,125,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="label5" Content="Last Name" HorizontalAlignment="Left" Height="30" Margin="41,165,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="label6" Content="Email" HorizontalAlignment="Left" Height="30" Margin="41,205,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="label1" Content="Login" HorizontalAlignment="Left" Height="30" Margin="22,45,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="label2" Content="Password" HorizontalAlignment="Left" Height="30" Margin="22,85,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="label3" Content="Password again" HorizontalAlignment="Left" Height="35" Margin="22,125,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label x:Name="label4" Content="First Name" HorizontalAlignment="Left" Height="30" Margin="22,165,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="label5" Content="Last Name" HorizontalAlignment="Left" Height="30" Margin="22,205,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="label6" Content="Email" HorizontalAlignment="Left" Height="30" Margin="22,245,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="label" Content="Enter the following informations:" HorizontalAlignment="Center" Height="28"  VerticalAlignment="Top" Width="200" FontWeight="Bold" Margin="46,11,46,0" />
+        <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Left" Height="30" Margin="126,85,0,0" VerticalAlignment="Top" Width="142"/>
+        <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Left" Height="30" Margin="126,125,0,0" VerticalAlignment="Top" Width="142"/>
+        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="30" Margin="126,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="30" Margin="126,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="30" Margin="126,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="30" Margin="79,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <Button x:Name="btRegister" Content="Register" HorizontalAlignment="Center" Height="28" Margin="0,307,0,0" VerticalAlignment="Top" Width="107" Click="btRegister_Click"/>
 
     </Grid>
 </Window>

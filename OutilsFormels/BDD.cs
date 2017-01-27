@@ -92,6 +92,10 @@ namespace OutilsFormels
                         reader.Read();
                         user = new User(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
                     }
+                    else
+                    {
+                        throw new Exception("User doesn't exist in the database");
+                    }
 
                 }
 

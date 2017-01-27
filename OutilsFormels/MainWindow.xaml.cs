@@ -20,8 +20,11 @@ namespace OutilsFormels
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        User user;
+        public MainWindow(User user)
         {
+            this.user = user;
+            BDD mybdd = new BDD();
             InitializeComponent();
         }
 

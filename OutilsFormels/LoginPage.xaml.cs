@@ -37,7 +37,11 @@ namespace OutilsFormels
                 bool validPassword = BCrypt.Net.BCrypt.Verify(passwordBox.Password, hashedPassword);
                 if (validPassword)
                 {
-
+                    MainWindow mainwin = new MainWindow(user);
+                }
+                else
+                {
+                    throw new Exception("Password doesn't correspond :/");
                 }
             }
             catch(Exception ex)
@@ -45,6 +49,12 @@ namespace OutilsFormels
                 lblErrorMsg.Content = ex.Message;
             }
            
+        }
+
+        private void btSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterPage Rpage = new RegisterPage();
+            Rpage.ShowDialog();
         }
     }
 }

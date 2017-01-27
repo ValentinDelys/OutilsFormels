@@ -25,10 +25,21 @@ namespace OutilsFormels
             InitializeComponent();
         }
 
-        private void test(object sender, RoutedEventArgs e)
+/*        private void test(object sender, RoutedEventArgs e)
         {
             BDD mybdd = new BDD();
             mybdd.AddUser(new User(0,"john","rambo","john.rambo@CpasmasGuerre.com", "$2a$10$N2ySck5.5ud.ys/BLGOWqeZioOamIpIfVinyd6FLpuOaSBASBlzrq", "jrambo"));
-         }
+        }
+*/
+
+        private void test(object sender, RoutedEventArgs e)
+        {
+            BDD mybdd = new BDD();
+            User user = new User();
+            mybdd.GetUser("jrambo", ref user);
+
+            Console.WriteLine("{0}\t{1}\t{2}", user.userID, user.firstName, user.lastName);
+
+        }
     }
 }

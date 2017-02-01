@@ -66,7 +66,7 @@ namespace OutilsFormels
             try
             {
                User user = new User(0, "", "", "", passwordBox.Password, txtLogin.Text);
-               bool IsValid= ValiderFunction(ref user);
+               bool IsValid = ValiderFunction(ref user);
                if (IsValid)
                 {
                     ViewPage viewPage = new ViewPage(user);
@@ -75,7 +75,7 @@ namespace OutilsFormels
                 }
                 else
                 {
-                    throw new Exception("Password doesn't correspond :/");
+                    throw new Exception("Login or password incorrect");
                 }
             }
             catch (Exception ex)

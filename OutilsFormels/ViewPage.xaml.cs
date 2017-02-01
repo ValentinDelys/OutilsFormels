@@ -32,8 +32,8 @@ namespace OutilsFormels
 
         private void btAddCard_Click(object sender, RoutedEventArgs e)
         {
-            AddCard addCard = new AddCard(user);
-            addCard.Show();
+            AddCardView addCardView = new AddCardView(user);
+            addCardView.Show();
             this.Close();
         }
 
@@ -59,6 +59,10 @@ namespace OutilsFormels
                 card.number = StringCipher.Decrypt(card.number, user.login);
                 card.number = "############" + card.number.Substring((card.number.Length - 4), 4);
             }
+        }
+
+        private void btRemoveCard_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

@@ -146,7 +146,7 @@ namespace OutilsFormels
 
         #region Card Function
         /// <summary>
-        /// Add a card on the database
+        /// Add a card in the database
         /// </summary>
         /// <param name="card"> card class </param>
         public int addCard(Card card)
@@ -160,12 +160,11 @@ namespace OutilsFormels
                 MySqlCommand cmd = this.connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO card ( number, expiration, cvv, type, fk_userID) VALUES ( @number, @expiration, @cvv, @type, @fk_userID)";
+                cmd.CommandText = "INSERT INTO card ( number, expiration, type, fk_userID) VALUES ( @number, @expiration, @type, @fk_userID)";
 
                 // utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@number", card.number);
                 cmd.Parameters.AddWithValue("@expiration", card.expiration);
-                cmd.Parameters.AddWithValue("@cvv", card.cvv);
                 cmd.Parameters.AddWithValue("@type", card.type);
                 cmd.Parameters.AddWithValue("@fk_userID", card.fk_userID);
 
@@ -226,15 +225,15 @@ namespace OutilsFormels
 
                 // Requête SQL
                 cmd.CommandText = "SELECT * FROM card WHERE fk_userID = " + user.userID;
+                
                 // Exécution de la commande SQL
-
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
                         while(reader.Read())
                         {
-                            Card card = new Card(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetInt32(5));
+                            Card card = new Card(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetInt32(3), reader.GetInt32(4));
                             list.Add(card);
                         }
                     }

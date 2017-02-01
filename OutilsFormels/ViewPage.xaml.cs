@@ -19,9 +19,16 @@ namespace OutilsFormels
     /// </summary>
     public partial class ViewPage : Window
     {
-        public ViewPage()
+        public ViewPage(User user)
         {
             InitializeComponent();
+
+            BDD mybdd = new BDD();
+   
+            List<Card> listCards = new List<Card>();
+            mybdd.getAllCards(ref user, ref listCards);
+
+            lvUsers.ItemsSource = listCards;
         }
     }
 }

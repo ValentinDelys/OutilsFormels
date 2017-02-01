@@ -72,6 +72,7 @@
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StringCypher.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ViewPage.xaml.cs">
       <DependentUpon>ViewPage.xaml</DependentUpon>
@@ -93,11 +94,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ViewPage.xaml">
+    <Page Include="RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegisterPage.xaml">
+    <Page Include="ViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -65,6 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddCard.xaml.cs">
+      <DependentUpon>AddCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Card.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -77,6 +80,10 @@
     <Compile Include="ViewPage.xaml.cs">
       <DependentUpon>ViewPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -25,6 +25,5 @@ namespace OutilsFormels
             this.password = password;
             this.login = login;
         }
-
     }
 }

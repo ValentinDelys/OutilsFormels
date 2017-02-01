@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilsFormels"
         mc:Ignorable="d"
-        Title="Card List" Height="300" Width="auto">
+        Title="Card List" Height="200" Width="400">
     <Grid>
-        <ListView Margin="10" Name="lvUsers">
+        <ListView Margin="10,10,10,30" Name="lvUsers">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Number" Width="250" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Expiration" Width="100" DisplayMemberBinding="{Binding Age}" />
-                    <GridViewColumn Header="Type" Width="50" DisplayMemberBinding="{Binding Mail}" />
+                    <GridViewColumn Header="Number" Width="200" DisplayMemberBinding="{Binding number}" />
+                    <GridViewColumn Header="Expiration" Width="100" DisplayMemberBinding="{Binding Path=expiration, StringFormat='{}{0:MM/yyyy}'}" />
+                    <GridViewColumn Header="Type" Width="50" DisplayMemberBinding="{Binding type}" />
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btAddCard" Content="Add card" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="76" Click="btAddCard_Click"/>
     </Grid>
 </Window>

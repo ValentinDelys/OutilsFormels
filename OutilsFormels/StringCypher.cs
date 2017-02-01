@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Linq;
 
-namespace EncryptStringSample
+namespace OutilsFormels
 {
     public static class StringCipher
     {

@@ -65,7 +65,7 @@ namespace OutilsFormels
             catch (Exception e)
             {
                 string msg = e.Message;
-
+                this.connection.Close();
                 return -1;
             }
         }
@@ -106,7 +106,7 @@ namespace OutilsFormels
             catch (Exception e)
             {
                 string msg = e.Message;
-
+                this.connection.Close();
                 return -1;
             }
         }
@@ -138,7 +138,7 @@ namespace OutilsFormels
             catch (Exception e)
             {
                 string msg = e.Message;
-
+                this.connection.Close();
                 return -1;
             }
         }

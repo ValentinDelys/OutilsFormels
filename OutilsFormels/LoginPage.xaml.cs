@@ -23,19 +23,51 @@ namespace OutilsFormels
         {
             InitializeComponent();
         }
-        private void ValiderFunction(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Test if the login and the password correspond to a user in the database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public bool ValiderFunction(ref User user )
         {
             try
             {
+                if (user.login == "" || user.password == "")
+                {
+                    throw new Exception("Login or Password is empty");
+                }
+
                 BDD mybdd = new BDD();
-                User user = new User();
-                if (mybdd.getUser(txtLogin.Text,ref user) != 1)
+                User userTest = new User();
+                if (mybdd.getUser(user.login, ref userTest) != 1)
                 {
                     throw new Exception("Login doesn't exist in the database");
                 }
                 string hashedPassword = user.password;
-                bool validPassword = BCrypt.Net.BCrypt.Verify(passwordBox.Password, hashedPassword);
-                if (validPassword)
+                user = userTest;
+                return BCrypt.Net.BCrypt.Verify( hashedPassword, user.password);
+               
+            }
+           catch
+            {
+                return false;
+            }
+
+        }
+
+        private void btSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterPage Rpage = new RegisterPage();
+            Rpage.ShowDialog();
+        }
+
+        private void btValider_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               User user = new User(0, "", "", "", passwordBox.Password, txtLogin.Text);
+               bool IsValid= ValiderFunction(ref user);
+               if (IsValid)
                 {
                     ViewPage viewPage = new ViewPage(user);
                     viewPage.Show();
@@ -46,17 +78,10 @@ namespace OutilsFormels
                     throw new Exception("Password doesn't correspond :/");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblErrorMsg.Content = ex.Message;
             }
-           
-        }
-
-        private void btSignIn_Click(object sender, RoutedEventArgs e)
-        {
-            RegisterPage Rpage = new RegisterPage();
-            Rpage.ShowDialog();
         }
     }
 }

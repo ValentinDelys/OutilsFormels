@@ -37,7 +37,9 @@ namespace OutilsFormels
                 bool validPassword = BCrypt.Net.BCrypt.Verify(passwordBox.Password, hashedPassword);
                 if (validPassword)
                 {
-                    ViewPage mainwin = new ViewPage(user);
+                    ViewPage viewPage = new ViewPage(user);
+                    viewPage.Show();
+                    this.Close();
                 }
                 else
                 {

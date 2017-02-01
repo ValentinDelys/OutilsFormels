@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:OutilsFormels"
         mc:Ignorable="d"
         Title="Card List" Height="300" Width="auto">
-    <Grid>
-        <ListView Margin="10" Name="lvUsers">
+    <Grid IsEnabled="False">
+        <ListView Margin="10,10,10,46" Name="lvUsers">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Number" Width="250" DisplayMemberBinding="{Binding Name}" />

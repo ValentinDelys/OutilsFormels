@@ -43,7 +43,7 @@ namespace OutilsFormels
             getUserCards(ref listCards);
             formatCardNumber(ref listCards);
 
-            lvUsers.ItemsSource = listCards;
+            lvCards.ItemsSource = listCards;
         }
 
         private void getUserCards(ref List<Card> listCards)
@@ -63,6 +63,15 @@ namespace OutilsFormels
 
         private void btRemoveCard_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            if (item != null && item.IsSelected)
+            {
+                sender.GetType(); //Do your stuff
+            }
         }
     }
 }

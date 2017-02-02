@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilsFormels"
         mc:Ignorable="d"
-        Title="Card List" Height="226.542" Width="400">
+        Title="Card List" Height="226.542" Width="400"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListView Margin="10,10,10,51" Name="lvUsers">
+        <ListView Margin="10,10,10,51" Name="lvCards">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Number" Width="200" DisplayMemberBinding="{Binding number}" />
@@ -15,6 +16,11 @@
                     <GridViewColumn Header="Type" Width="50" DisplayMemberBinding="{Binding type}" />
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
         <Button x:Name="btAddCard" Content="Add card" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="76" Height="28" Click="btAddCard_Click"/>
         <Button x:Name="btRemoveCard" Content="Remove card" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="96,0,0,10" Width="76" Height="28" Click="btRemoveCard_Click"/>

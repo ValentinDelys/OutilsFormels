@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilsFormels"
         mc:Ignorable="d"
-        Title="Card List" Height="300" Width="auto">
-    <Grid IsEnabled="False">
-        <ListView Margin="10,10,10,46" Name="lvUsers">
+        Title="Card List" Height="226.542" Width="400">
+    <Grid>
+        <ListView Margin="10,10,10,51" Name="lvUsers">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Number" Width="250" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Expiration" Width="100" DisplayMemberBinding="{Binding Age}" />
-                    <GridViewColumn Header="Type" Width="50" DisplayMemberBinding="{Binding Mail}" />
+                    <GridViewColumn Header="Number" Width="200" DisplayMemberBinding="{Binding number}" />
+                    <GridViewColumn Header="Expiration" Width="100" DisplayMemberBinding="{Binding Path=expiration, StringFormat='{}{0:MM/yyyy}'}" />
+                    <GridViewColumn Header="Type" Width="50" DisplayMemberBinding="{Binding type}" />
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="btAddCard" Content="Add card" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="76" Height="28" Click="btAddCard_Click"/>
+        <Button x:Name="btRemoveCard" Content="Remove card" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="96,0,0,10" Width="76" Height="28" Click="btRemoveCard_Click"/>
     </Grid>
 </Window>

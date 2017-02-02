@@ -19,16 +19,50 @@ namespace OutilsFormels
     /// </summary>
     public partial class ViewPage : Window
     {
-        public ViewPage(User user)
+        public User user;
+
+        public ViewPage(User _user)
         {
             InitializeComponent();
 
-            BDD mybdd = new BDD();
-   
+            user = _user;
+
+            showUserCards();
+        }
+
+        private void btAddCard_Click(object sender, RoutedEventArgs e)
+        {
+            AddCardView addCardView = new AddCardView(user);
+            addCardView.Show();
+            this.Close();
+        }
+
+        private void showUserCards()
+        {
             List<Card> listCards = new List<Card>();
-            mybdd.getAllCards(ref user, ref listCards);
+            getUserCards(ref listCards);
+            formatCardNumber(ref listCards);
 
             lvUsers.ItemsSource = listCards;
+        }
+
+        private void getUserCards(ref List<Card> listCards)
+        {
+            BDD mybdd = new BDD();
+            mybdd.getAllCards(ref user, ref listCards);
+        }
+
+        private void formatCardNumber(ref List<Card> listCards)
+        {
+            foreach (Card card in listCards)
+            {
+                card.number = StringCipher.Decrypt(card.number, user.login);
+                card.number = "############" + card.number.Substring((card.number.Length - 4), 4);
+            }
+        }
+
+        private void btRemoveCard_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

@@ -17,14 +17,14 @@ namespace OutilsFormels
     /// <summary>
     /// Logique d'interaction pour AddCard.xaml
     /// </summary>
-    public partial class AddCardView : Window
+    public partial class AddCard : Window
     {
         public int type { get; set; } = 0;
         public int month { get; set; } = 1;
         public User user { get; set; }
         public string number { get; set; }
 
-        public AddCardView(User _user)
+        public AddCard(User _user)
         {
             InitializeComponent();
             user = _user;
@@ -43,15 +43,11 @@ namespace OutilsFormels
 
             BDD mybdd = new BDD();
             mybdd.addCard(card);
-
-            ViewPage viexPage = new ViewPage(user);
-            viexPage.Show();
-            this.Close();
         }
 
         private void cbMonth_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            month = cbMonth.SelectedIndex + 1;
+            month = cbMonth.SelectedIndex+1;
         }
     }
 }

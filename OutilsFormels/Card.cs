@@ -9,7 +9,7 @@ namespace OutilsFormels
     public class Card
     {
         public int cardID { get; set; }
-        public string number { get; set; }          //crypted card's number
+        public string number { get; set; }
         public DateTime expiration { get; set; }
         public int type { get; set; }
         public int fk_userID { get; set; }

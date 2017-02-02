@@ -37,13 +37,23 @@ namespace OutilsFormels
 
         private void bValidate_Click(object sender, RoutedEventArgs e)
         {
-            DateTime expiration = new DateTime(Int32.Parse(tbYear.Text), month, 1);
-            number = StringCipher.Encrypt(tbNumber.Text, user.login);
-            Card card = new Card(0, number, expiration, type, user.userID);
-            addCard(ref card);
-
-            DialogResult = true;
-            this.Close();
+            try
+            {
+                if (tbNumber.Text == "" || tbYear.Text=="") { throw new Exception("Number or year are empty"); }
+                if (!RegexFunction.isNumber(tbNumber.Text)) { throw new Exception("Number value isn't a number"); }
+                if (!RegexFunction.isNumber(tbYear.Text)) { throw new Exception("Year value isn't a number"); }
+                if( Convert.ToInt16( tbYear.Text )< DateTime.Now.Year) { throw new Exception("Year value is anterior as the actual Year"); }
+                DateTime expiration = new DateTime(Int32.Parse(tbYear.Text), month, 1);
+                number = StringCipher.Encrypt(tbNumber.Text, user.login);
+                Card card = new Card(0, number, expiration, type, user.userID);
+                addCard(ref card);
+                DialogResult = true;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                lblErrorMsg.Content = "";
+            }
         }
 
         private void cbMonth_SelectionChanged(object sender, SelectionChangedEventArgs e)

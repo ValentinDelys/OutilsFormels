@@ -29,10 +29,15 @@ namespace OutilsFormels
         {
             var hasNumber = new Regex(@"[0-9]+");
             var hasUpperChar = new Regex(@"[A-Z]+");
-            var hasMinimum8Chars = new Regex(@".{8,}");
+            var hasMinimum8Chars = new Regex(@".{8,30}");
             var hasNoCharacterSpeacial = new Regex(@"^[a-zA-Z0-9]*$");
             hasNoCharacterSpeacial.IsMatch(inputPassword);
             return hasNoCharacterSpeacial.IsMatch(inputPassword) && hasNumber.IsMatch(inputPassword) && hasUpperChar.IsMatch(inputPassword) && hasMinimum8Chars.IsMatch(inputPassword);
         }
+         public static bool isNumber(string inputString)
+        {
+            var isANumber = new Regex(@"[0-9]");
+            return isANumber.IsMatch(inputString);
+    }
     }
 }

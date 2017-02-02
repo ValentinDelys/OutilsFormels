@@ -60,7 +60,7 @@ namespace OutilsFormels
             if(str.Length< sizeMin || str.Length > sizeMax) { return false; }
             return rg.IsMatch(str);
         }
-      
+        
         public bool isValidEmail(string inputEmail)
         {
             string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +

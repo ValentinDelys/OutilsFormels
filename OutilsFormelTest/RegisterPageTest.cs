@@ -30,5 +30,35 @@ namespace OutilsFormelTest
             bool result = registerPage.isValidstring("c@c@huette", 1, 20);
             Assert.AreEqual(false, result);
         }
+
+        [TestMethod]
+        public void isValidEmail_cacahuetteAchocolatcom()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidEmail("cacahuette@chocolat.com");
+            Assert.AreEqual(true, result);
+        }
+        [TestMethod]
+        public void isValidEmail_cacahuettechocolatcom()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidEmail("cacahuettechocolat.com");
+            Assert.AreEqual(false, result);
+        }
+        [TestMethod]
+        public void isValidEmail_cacahuettechocolat()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidEmail("cacahuettechocolat");
+            Assert.AreEqual(false, result);
+        }
+        [TestMethod]
+        public void isValidEmail_cacahuetteAchocolat()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidEmail("cacahuette@chocolat");
+            Assert.AreEqual(false, result);
+        }
+
     }
 }

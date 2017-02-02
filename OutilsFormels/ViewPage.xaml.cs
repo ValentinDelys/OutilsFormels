@@ -20,21 +20,26 @@ namespace OutilsFormels
     public partial class ViewPage : Window
     {
         public User user;
+        public Card selectedCard { get; set; }
 
         public ViewPage(User _user)
         {
-            InitializeComponent();
-
             user = _user;
 
+            InitializeComponent();
             showUserCards();
         }
 
         private void btAddCard_Click(object sender, RoutedEventArgs e)
         {
             AddCardView addCardView = new AddCardView(user);
-            addCardView.Show();
-            this.Close();
+            addCardView.ShowDialog();
+
+            if (addCardView.DialogResult.HasValue && addCardView.DialogResult.Value)
+            {
+                showUserCards();
+                MessageBox.Show("Your card has been successfully added ");
+            }
         }
 
         private void showUserCards()
@@ -52,6 +57,12 @@ namespace OutilsFormels
             mybdd.getAllCards(ref user, ref listCards);
         }
 
+        private void removeCard(int cardID)
+        {
+            BDD mybdd = new BDD();
+            mybdd.deleteCard(cardID);
+        }
+
         private void formatCardNumber(ref List<Card> listCards)
         {
             foreach (Card card in listCards)
@@ -63,6 +74,18 @@ namespace OutilsFormels
 
         private void btRemoveCard_Click(object sender, RoutedEventArgs e)
         {
+
+            if(selectedCard != null)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Remove Card Confirmation", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    removeCard(selectedCard.cardID);
+                    btRemoveCard.IsEnabled = false;
+                    selectedCard = default(Card);
+                    showUserCards();
+                }
+            }
         }
 
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -70,7 +93,8 @@ namespace OutilsFormels
             var item = sender as ListViewItem;
             if (item != null && item.IsSelected)
             {
-                sender.GetType(); //Do your stuff
+                selectedCard = (Card)item.Content;
+                btRemoveCard.IsEnabled = true;
             }
         }
     }

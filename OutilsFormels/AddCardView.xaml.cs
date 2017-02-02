@@ -40,18 +40,21 @@ namespace OutilsFormels
             DateTime expiration = new DateTime(Int32.Parse(tbYear.Text), month, 1);
             number = StringCipher.Encrypt(tbNumber.Text, user.login);
             Card card = new Card(0, number, expiration, type, user.userID);
+            addCard(ref card);
 
-            BDD mybdd = new BDD();
-            mybdd.addCard(card);
-
-            ViewPage viexPage = new ViewPage(user);
-            viexPage.Show();
+            DialogResult = true;
             this.Close();
         }
 
         private void cbMonth_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             month = cbMonth.SelectedIndex + 1;
+        }
+
+        private void addCard(ref Card card)
+        {
+            BDD mybdd = new BDD();
+            mybdd.addCard(card);
         }
     }
 }

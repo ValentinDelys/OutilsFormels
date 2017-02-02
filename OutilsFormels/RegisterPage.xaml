@@ -15,13 +15,13 @@
         <Label x:Name="label5" Content="Last Name" HorizontalAlignment="Left" Height="30" Margin="22,205,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="label6" Content="Email" HorizontalAlignment="Left" Height="30" Margin="22,245,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="label" Content="Enter the following informations:" HorizontalAlignment="Center" Height="28"  VerticalAlignment="Top" Width="200" FontWeight="Bold" Margin="46,11,46,0" />
-        <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Left" Height="30" Margin="126,85,0,0" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Left" Height="30" Margin="126,125,0,0" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="30" Margin="126,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="30" Margin="126,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="30" Margin="126,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="30" Margin="79,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="btRegister" Content="Register" HorizontalAlignment="Center" Height="28" Margin="92,325,92,0" VerticalAlignment="Top" Width="108" Click="btRegister_Click"/>
+        <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Left" Height="30" Margin="126,85,0,0" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="1"/>
+        <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Left" Height="30" Margin="126,125,0,0" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="2"/>
+        <TextBox x:Name="tbLogin" HorizontalAlignment="Left" Height="30" Margin="126,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="0"/>
+        <TextBox x:Name="tbFirstName" HorizontalAlignment="Left" Height="30" Margin="126,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="3"/>
+        <TextBox x:Name="tbLastName" HorizontalAlignment="Left" Height="30" Margin="126,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="4"/>
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="30" Margin="79,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TabIndex="5"/>
+        <Button x:Name="btRegister" Content="Register" HorizontalAlignment="Center" Height="28" Margin="92,325,92,0" VerticalAlignment="Top" Width="108" Click="btRegister_Click" TabIndex="6"/>
         <Label x:Name="lblErrorMsg" Content="" HorizontalAlignment="Center"
                Height="36" Margin="46,284,53,0" VerticalAlignment="Top" Width="193" Foreground="Red"/>
         <Label x:Name="label7" Content="8 characters min with 1 Uper and 1 Number  " HorizontalAlignment="Left" Height="21" Margin="22,109,0,0" VerticalAlignment="Top" Width="177" FontSize="8"/>

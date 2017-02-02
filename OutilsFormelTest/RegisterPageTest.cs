@@ -60,5 +60,36 @@ namespace OutilsFormelTest
             Assert.AreEqual(false, result);
         }
 
+        [TestMethod]
+        public void isValidPassword_CocoLasticot37()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidPassword("CocoLasticot37");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void isValidPassword_cocolasticot37()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidPassword("cocolasticot37");
+            Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
+        public void isValidPassword_CocoLasticot()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidPassword("CocoLasticot");
+            Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
+        public void isValidPassword_CocoL_asticot37()
+        {
+            RegisterPage registerPage = new RegisterPage();
+            bool result = registerPage.isValidPassword("CocoL'asticot37");
+            Assert.AreEqual(false, result);
+        }
     }
 }

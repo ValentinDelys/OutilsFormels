@@ -78,8 +78,8 @@ namespace OutilsFormels
             var hasNumber = new Regex(@"[0-9]+");
             var hasUpperChar = new Regex(@"[A-Z]+");
             var hasMinimum8Chars = new Regex(@".{8,}");
-
-            return  hasNumber.IsMatch(inputPassword) && hasUpperChar.IsMatch(inputPassword) && hasMinimum8Chars.IsMatch(inputPassword);
+            var hasNoCharacterSpeacial = new Regex(@"^a-zA-Z0-9");
+            return hasNoCharacterSpeacial.IsMatch(inputPassword) && hasNumber.IsMatch(inputPassword) && hasUpperChar.IsMatch(inputPassword) && hasMinimum8Chars.IsMatch(inputPassword);
         }
 
     }

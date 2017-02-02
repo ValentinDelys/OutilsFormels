@@ -11,7 +11,7 @@ namespace OutilsFormelTest
         [TestMethod]
         public void ValiderFunction_login_jrambo_mdp_guerre()
         {
-            User user = new User(0, "", "", "", "guerre", "jrambo");
+            User user = new User(0, "", "", "", "Guerre37", "jrambo");
             LoginPage loginPage = new LoginPage();
             bool result = loginPage.ValiderFunction(ref user);
             Assert.AreEqual(true, result);

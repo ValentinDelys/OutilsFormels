@@ -75,16 +75,16 @@ namespace OutilsFormels
         {
             try
             {
-                // Ouverture de la connexion SQL
+                // Ouverture de la connexion SQL(
                 this.connection.Open();
 
                 // Création d'une commande SQL en fonction de l'objet connection
                 MySqlCommand cmd = this.connection.CreateCommand();
-
+                
                 // Requête SQL
                 cmd.CommandText = "SELECT * FROM user WHERE login = " + (char)34 + loginUser + (char)34;
                 // Exécution de la commande SQL
-
+                Console.WriteLine(cmd.CommandText);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)

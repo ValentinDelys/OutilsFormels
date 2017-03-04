@@ -34,10 +34,10 @@ namespace OutilsFormels
             hasNoCharacterSpeacial.IsMatch(inputPassword);
             return hasNoCharacterSpeacial.IsMatch(inputPassword) && hasNumber.IsMatch(inputPassword) && hasUpperChar.IsMatch(inputPassword) && hasMinimum8Chars.IsMatch(inputPassword);
         }
-         public static bool isNumber(string inputString)
+        public static bool isNumber(string inputString)
         {
             var isANumber = new Regex(@"[0-9]");
             return isANumber.IsMatch(inputString);
-    }
+        }
     }
 }

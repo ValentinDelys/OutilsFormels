@@ -32,5 +32,7 @@
             <ComboBoxItem Content="11"/>
             <ComboBoxItem Content="12"/>
         </ComboBox>
+        <Label x:Name="lblErrorMsg" Content="" HorizontalAlignment="Center"
+            Height="36" Margin="99,160,10,0" VerticalAlignment="Top" Width="193" Foreground="Red"/>
     </Grid>
 </Window>

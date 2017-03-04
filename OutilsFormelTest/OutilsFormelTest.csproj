@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="LoginPageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterPageTest.cs" />
+    <Compile Include="RegexFunctionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OutilsFormels\OutilsFormels.csproj">

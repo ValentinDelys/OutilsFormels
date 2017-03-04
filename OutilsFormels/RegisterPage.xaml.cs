@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using OutilsFormels;
 using System.Text.RegularExpressions;
 
 namespace OutilsFormels
@@ -27,15 +27,17 @@ namespace OutilsFormels
         }
 
         private void btRegister_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             try
             {
-                if (!isValidstring(tbLogin.Text, 1, 30)) { throw new Exception("Login invalid"); }
-                if (!isValidPassword(passwordBox1.Password) && passwordBox1.Password== passwordBox2.Password) { throw new Exception("Password invalid"); }
-                if (!isValidstring(tbFirstName.Text, 1, 40)) { throw new Exception("FirstName invalid"); }
-                if (!isValidstring(tbLastName.Text, 1, 40)) { throw new Exception("LastName invalid"); }
-                if (!isValidEmail(tbEmail.Text)) { throw new Exception("Email invalid"); }
+                //test des différents champs
+                if (!RegexFunction.isValidstring(tbLogin.Text, 1, 30)) { throw new Exception("Login invalid"); }
+                if (!RegexFunction.isValidPassword(passwordBox1.Password) && passwordBox1.Password== passwordBox2.Password) { throw new Exception("Password invalid"); }
+                if (!RegexFunction.isValidstring(tbFirstName.Text, 1, 40)) { throw new Exception("FirstName invalid"); }
+                if (!RegexFunction.isValidstring(tbLastName.Text, 1, 40)) { throw new Exception("LastName invalid"); }
+                if (!RegexFunction.isValidEmail(tbEmail.Text)) { throw new Exception("Email invalid"); }
 
+                //verification du login 
                 BDD mybdd = new BDD();
                 User user = new User();
                 if (mybdd.getUser(tbLogin.Text, ref user) == 1)
@@ -52,35 +54,5 @@ namespace OutilsFormels
                 lblErrorMsg.Content = ex.Message;
             }
         }
-       
-
-        public  bool isValidstring(string str,int sizeMin,int sizeMax)
-        {
-            Regex rg = new Regex(@"^[a-zA-Z0-9\s,]*$");
-            if(str.Length< sizeMin || str.Length > sizeMax) { return false; }
-            return rg.IsMatch(str);
-        }
-        
-        public bool isValidEmail(string inputEmail)
-        {
-            string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
-                  @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
-                  @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-            Regex re = new Regex(strRegex);
-            if (re.IsMatch(inputEmail))
-                return (true);
-            else
-                return (false);
-        }
-
-        public bool isValidPassword(string inputPassword)
-        {
-            var hasNumber = new Regex(@"[0-9]+");
-            var hasUpperChar = new Regex(@"[A-Z]+");
-            var hasMinimum8Chars = new Regex(@".{8,}");
-            var hasNoCharacterSpeacial = new Regex(@"^a-zA-Z0-9");
-            return hasNoCharacterSpeacial.IsMatch(inputPassword) && hasNumber.IsMatch(inputPassword) && hasUpperChar.IsMatch(inputPassword) && hasMinimum8Chars.IsMatch(inputPassword);
-        }
-
     }
 }

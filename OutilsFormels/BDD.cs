@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 // Librairie MySQL ajoutée dans les références.
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace OutilsFormels
 {
@@ -64,7 +65,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 this.connection.Close();
                 return -1;
             }
@@ -75,16 +76,16 @@ namespace OutilsFormels
         {
             try
             {
-                // Ouverture de la connexion SQL
+                // Ouverture de la connexion SQL(
                 this.connection.Open();
 
                 // Création d'une commande SQL en fonction de l'objet connection
                 MySqlCommand cmd = this.connection.CreateCommand();
-
+                
                 // Requête SQL
                 cmd.CommandText = "SELECT * FROM user WHERE login = " + (char)34 + loginUser + (char)34;
                 // Exécution de la commande SQL
-
+                Console.WriteLine(cmd.CommandText);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
@@ -105,7 +106,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 this.connection.Close();
                 return -1;
             }
@@ -137,7 +138,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 this.connection.Close();
                 return -1;
             }
@@ -177,7 +178,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 return -1;
             }
         }
@@ -208,7 +209,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 return -1;
             }
         }
@@ -252,7 +253,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
 
                 return -1;
             }

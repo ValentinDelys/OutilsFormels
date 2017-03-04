@@ -36,6 +36,14 @@ namespace OutilsFormels
                 {
                     throw new Exception("Login or Password is empty");
                 }
+                if(!RegexFunction.isValidstring(user.login,1,40))
+                {
+                    throw new Exception("Login doesn't correspond to the standard");
+                }
+                if(!RegexFunction.isValidPassword(user.password))
+                {
+                    throw new Exception("Password doesn't correspond to the standard");
+                }
 
                 BDD mybdd = new BDD();
                 User userTest = new User();

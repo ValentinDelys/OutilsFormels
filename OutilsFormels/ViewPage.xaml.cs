@@ -32,6 +32,7 @@ namespace OutilsFormels
 
         private void btAddCard_Click(object sender, RoutedEventArgs e)
         {
+
             AddCardView addCardView = new AddCardView(user);
             addCardView.ShowDialog();
 
@@ -75,7 +76,7 @@ namespace OutilsFormels
         private void btRemoveCard_Click(object sender, RoutedEventArgs e)
         {
 
-            if(selectedCard != null)
+            if (selectedCard != null)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Remove Card Confirmation", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)

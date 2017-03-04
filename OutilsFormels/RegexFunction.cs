@@ -4,7 +4,7 @@ using System;
 
 namespace OutilsFormels
 {
-    public class RegexFunction
+    public static class RegexFunction
     {
         public static bool isValidstring(string str, int sizeMin, int sizeMax)
         {

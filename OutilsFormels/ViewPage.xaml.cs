@@ -25,7 +25,7 @@ namespace OutilsFormels
         public ViewPage(User _user)
         {
             user = _user;
-
+            
             InitializeComponent();
             showUserCards();
         }

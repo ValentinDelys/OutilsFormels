@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutilsFormels"
         mc:Ignorable="d"
-        Title="Card List" Height="226.542" Width="400"
+        Title="Card List" Height="260" Width="420"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <ListView Margin="10,10,10,51" Name="lvCards">
+        <ListView Margin="10,33,10,46" Name="lvCards">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Number" Width="200" DisplayMemberBinding="{Binding number}" />
@@ -24,5 +24,9 @@
         </ListView>
         <Button x:Name="btAddCard" Content="Add card" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="76" Height="28" Click="btAddCard_Click"/>
         <Button x:Name="btRemoveCard" Content="Remove card" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="96,0,0,10" Width="76" Height="28" Click="btRemoveCard_Click"/>
+        <Label x:Name="lUser" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="76">
+            <Run Text="Utilisateur:"/>
+        </Label>
+        <Label x:Name="lUserName" HorizontalAlignment="Left" Margin="96,7,0,0" VerticalAlignment="Top" Width="306" Height="26" Content="{Binding Path=userName}"/>
     </Grid>
 </Window>

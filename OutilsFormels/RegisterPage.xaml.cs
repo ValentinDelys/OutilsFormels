@@ -30,12 +30,14 @@ namespace OutilsFormels
         { 
             try
             {
+                //test des différents champs
                 if (!RegexFunction.isValidstring(tbLogin.Text, 1, 30)) { throw new Exception("Login invalid"); }
                 if (!RegexFunction.isValidPassword(passwordBox1.Password) && passwordBox1.Password== passwordBox2.Password) { throw new Exception("Password invalid"); }
                 if (!RegexFunction.isValidstring(tbFirstName.Text, 1, 40)) { throw new Exception("FirstName invalid"); }
                 if (!RegexFunction.isValidstring(tbLastName.Text, 1, 40)) { throw new Exception("LastName invalid"); }
                 if (!RegexFunction.isValidEmail(tbEmail.Text)) { throw new Exception("Email invalid"); }
 
+                //verification du login 
                 BDD mybdd = new BDD();
                 User user = new User();
                 if (mybdd.getUser(tbLogin.Text, ref user) == 1)

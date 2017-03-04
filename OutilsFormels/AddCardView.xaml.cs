@@ -52,7 +52,8 @@ namespace OutilsFormels
             }
             catch (Exception ex)
             {
-                lblErrorMsg.Content = "";
+
+                lblErrorMsg.Content = ex.Message;
             }
         }
 

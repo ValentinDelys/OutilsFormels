@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 // Librairie MySQL ajoutée dans les références.
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace OutilsFormels
 {
@@ -64,7 +65,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 this.connection.Close();
                 return -1;
             }
@@ -105,7 +106,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 this.connection.Close();
                 return -1;
             }
@@ -137,7 +138,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 this.connection.Close();
                 return -1;
             }
@@ -177,7 +178,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 return -1;
             }
         }
@@ -208,7 +209,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
                 return -1;
             }
         }
@@ -246,7 +247,7 @@ namespace OutilsFormels
             }
             catch (Exception e)
             {
-                string msg = e.Message;
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButton.OK);
 
                 return -1;
             }

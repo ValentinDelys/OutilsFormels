@@ -12,11 +12,11 @@ namespace OutilsFormels
 {
     public class BDD
     {
-        private string connectionString = "SERVER=localhost; DATABASE=outils_formels; UID=root; PASSWORD=";
+        private const string connectionString = "SERVER=localhost; DATABASE=outils_formels; UID=root; PASSWORD=";
         private MySqlConnection connection;
 
         /// <summary>
-        /// constructor
+        /// Constructor
         /// </summary>
         public BDD()
         {
@@ -24,7 +24,7 @@ namespace OutilsFormels
         }
 
         /// <summary>
-        /// init the connection with the database
+        /// Init the connection with the database
         /// </summary>
         private void initConnection()
         {
@@ -149,7 +149,7 @@ namespace OutilsFormels
         /// <summary>
         /// Add a card in the database
         /// </summary>
-        /// <param name="card"> card class </param>
+        /// <param name="card"> Card class </param>
         public int addCard(Card card)
         {
             try
@@ -163,7 +163,7 @@ namespace OutilsFormels
                 // Requête SQL
                 cmd.CommandText = "INSERT INTO card ( number, expiration, type, fk_userID) VALUES ( @number, @expiration, @type, @fk_userID)";
 
-                // utilisation de l'objet contact passé en paramètre
+                // Utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@number", card.number);
                 cmd.Parameters.AddWithValue("@expiration", card.expiration);
                 cmd.Parameters.AddWithValue("@type", card.type);
@@ -186,7 +186,7 @@ namespace OutilsFormels
         /// <summary>
         /// Delete a card from the database
         /// </summary>
-        /// <param name="cardID"> ID of the card which have to be delete</param>
+        /// <param name="cardID"> ID of the card which must be deleted</param>
         /// <returns></returns>
         public int deleteCard(int cardID)
         {
@@ -214,6 +214,12 @@ namespace OutilsFormels
             }
         }
 
+        /// <summary>
+        /// Get all cards from the database
+        /// </summary>
+        /// <param name="user">User class</param>
+        /// <param name="list">List class</param>
+        /// <returns></returns>
         public int getAllCards(ref User user, ref List<Card> list)
         {
             try
